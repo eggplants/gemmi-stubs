@@ -4,6 +4,8 @@ import typing
 
 from typing import Any, ClassVar, Iterable, Iterator
 
+from . import cif
+
 from .cif import Block, Document
 
 from typing import overload
