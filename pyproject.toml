@@ -1,3 +1,49 @@
 [build-system]
-requires = ["wheel", "setuptools"]
-build-backend = "setuptools.build_meta"
+build-backend = "poetry.core.masonry.api"
+requires = [
+  "poetry-core",
+]
+
+[tool]
+[tool.black]
+line-length = 120
+target-version = ['py38']
+
+[tool.mypy]
+pretty = true
+python_version = "3.8"
+show_error_codes = true
+strict = true
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["D", "ANN101"]
+line-length = 120
+
+[tool.poetry]
+authors = ["eggplants <w10776e8w@yahoo.co.jp>"]
+classifiers = [
+  "License :: OSI Approved :: MPL License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python",
+]
+description = "Typing stubs for gemmi"
+keywords = ["downloader", "cli", "manga"]
+name = "gemmi_stubs"
+packages = [{include = "gemmi-stubs"}]
+license = "MPL"
+readme = "README.md"
+repository = "https://github.com/eggplants/gemmi-stubs"
+version = "0.6.0-0"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+
+[tool.poetry.group.dev.dependencies]
+gemmi = "0.6.0"
+mypy = ">=0.991,<1.3"
+pre-commit = ">=2.20,<4.0"
+numpy = "^1.24.2"
+pybind11-stubgen = "^0.13.0"
